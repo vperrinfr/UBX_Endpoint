@@ -1,0 +1,252 @@
+/*
+ * Base application structure to augment IBM Bootstrap to Experience One without the fuss of angular.
+ * Especially since we like using d3.js nvd3.js because they are much faster.
+ * Fixed left side navigation menu > 768 pixels, disappears on mobile pages.
+ * Can override on first page by setting .sidebar { display :block } .
+ * 
+ * @author Louis Roehrs
+ * 
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,helvetica, Calibri, sans-serif;
+  font-size:16px;
+  padding-top: 50px;
+  -webkit-font-smoothing: antialiased;  // prevents fonts render changes when overlays want to cause the browser to choose different font rendering.
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; /* Webkit */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE 10  */
+
+/* Currently not supported in Opera but will be soon */
+  -o-user-select: none;
+  user-select: none;  
+
+}
+
+/* This is here to hide the upper part of the breadcrumb 'navbar-up' 'navbar-brand'
+   and because bootstrap has other ideas...'navbar-toggle' */
+
+
+.page-header {
+   border-bottom: none;
+   margin-bottom:0px;
+   margin-top:0px;
+   margin-left:0px;
+}
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.main {
+  padding: 20px;
+}
+
+/* 
+ * Navigation bar
+ */
+
+.navbar {
+    border-bottom: 0px solid #6d6e70;
+    min-height:51px;
+    white-space:nowrap;
+}
+
+.navbar-inverse {
+    // background-color:#222222;
+    white-space:nowrap;
+}
+
+.navbar-brand {
+    color: #e6e7e8 !important;
+    padding-top:4px;
+    margin-left:-7px !important;
+    white-space:nowrap;
+
+}
+.navbar-brand-leaf {
+    white-space:nowrap;
+    text-overflow:ellipses;
+    font-size:20px;
+}
+
+.navbar a {
+    color: #e6e7e8 !important;
+    text-decoration: none;
+}
+
+.navbar .navbar-brand a:hover, .navbar .navbar-brand a:focus {
+	color: #e6e7e8 !important;
+	text-decoration: underline;
+}
+.navbar a:hover {
+    color: black !important;
+}
+
+.navbar li:hover {
+    color: black;
+    text-decoration: none;
+    background-color: #ddddee;
+}
+
+.navbar-toggle {
+    float:left;
+    display:block;
+}
+
+.navbar .container-fluid {
+    padding-left:4px;
+}
+
+
+/* 
+ * Sidebar Set to 250 px width, and page content set to match.
+ */
+
+
+.nav-sidebar {
+  margin-right: -20px;
+  margin-bottom: 0px;
+  margin-left: -20px;
+  text-align:left;
+}
+
+.nav-sidebar  a {
+    color:white;
+    white-space:nowrap;
+    text-decoration:none;
+
+}
+
+.nav-sidebar  img {
+    position:absolute;
+    margin: 12px 0 0 19px;
+}
+
+.nav-sidebar > li {
+    border-top: 1px solid #656565;
+    border-bottom: 1px solid #292929;
+}
+
+.nav-sidebar > li:hover {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.nav-sidebar a div:last-child {
+    margin:0px 0px 0px 55px;
+    padding:10px;
+    padding-left:20px;
+}
+
+#dateSelector {
+    border:0px solid white;
+}
+
+#dateSelector  .btn-default {
+    font-size: 14px !important;
+}
+
+/* Buttons */
+.btn {
+    border:0px solid white;
+}
+
+
+.btn-default, button, select, input  {
+    background-color:#00a6a0;
+    border:2px solid #00b8b0;
+    margin: 2px;
+    height: 30px;
+    border-radius:2px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color:white;
+    padding: 0 8px;
+}
+
+button {
+    height: 40px;
+}
+
+select, input {
+    border: 1px solid #eee;
+    background-color:#ccc;
+    color:black;
+}
+
+select {
+    -webkit-appearance: menulist-button;
+    -moz-appearance: menu;
+    appearance: menu;
+}
+
+
+#coh .popover {
+    max-width:400px;
+    min-width:4`00px;
+}
+
+.popover-content {
+    font-size: 12px;
+}
+
+.ui-dialog {
+    z-index:20000 !important;
+}
+
+
+/* Sidebar now opens and closes by moving main content right on all devices.
+   Should add to IBM design language */
+
+.sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color:#505050;
+    padding-top:0px;
+    min-width: 250px;
+    max-width: 250px;
+    height:auto;
+//    transition-duration: 0.5s;
+}
+
+.sidebar-hidden {
+    left:-250px;
+}
+
+#page-content-wrapper {
+    margin-left: 250px;
+//    transition-duration: 0.5s;
+    }
+
+#page-content-wrapper.page-content-wrapper-sidebar-hidden {
+    margin-left: 0px !important;
+}
+
+@media (max-width: 768px) {
+    .navbar-up {
+        display:none;
+    }
+
+    .navbar-brand {
+        color:#fff;
+        font-size:200%;
+        margin-top:10px;
+        height:0px;
+    }
+
+    .navbar-toggle {
+        margin-left:15px;
+    }
+}

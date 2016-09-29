@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+  - '6.2'
+
+# Deploy
+deploy:
+  edge: true
+  skip_cleanup: true
+  provider: cloudfoundry
+  username: ${BLUEMIX_USER}
+  #########################
+  ## Add BLUEMIX_PASSWORD environment variable to your Travis project's settings
+  ## https://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-Repository-Settings
+  #########################
+  password: ${BLUEMIX_PASSWORD}
+  organization: ${BLUEMIX_ORG} # Set to your org
+  space: hackademy # Set to your space
+  api: https://api.ng.bluemix.net/
+  on:
+    branch: master
+
+# Notifications
+notifications:
+  email: false

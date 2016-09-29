@@ -1,0 +1,900 @@
+/*
+ * Overrides because I think they are needed.
+ * 
+ * @author Louis Roehrs
+ * 
+ */
+
+
+h3 { 
+	margin-top: 0px;
+}
+
+svg {
+    height: auto;
+}
+
+input {
+    padding:3px;
+}
+
+.hidden {
+    display:block;
+}
+
+.badge {
+    display:none;
+    float:right;
+    margin-left: 4px;
+    margin-top: 1px;
+}
+
+.badge.lit {
+    display:block;
+}
+
+.inprogress {
+    background-color:rgba(255,255,255,.1);
+    -webkit-filter: blur(5px); -moz-filter: blur(5px); -o-filter: blur(5px); -ms-filter: blur(5px); filter: blur(5px);
+}
+/* x1 style */
+
+.x1-donutvalue {
+    font-size: 30px;
+}
+
+/* colors */
+.yellow {
+    background-color:#ffd;
+}
+.orange {
+    background-color:#fd8;
+}
+.red {
+    background-color:red;
+}
+
+.green {
+    background-color:green;
+}
+
+.darkgreen {
+    background-color:#4a4;
+}
+
+.textwhite {
+    color:white;
+}
+
+.grey {
+    background-color:#ccc;
+}
+
+.floatleft {
+    float: left;
+}
+.floatright {
+    float: right;
+}
+.right {
+    text-align:right;
+}
+
+.borderright {
+    border-right:2px solid black;
+}
+.center {
+    text-align:center;
+}
+
+#overagesSummary {
+	background-color: #eee;
+    -moz-border-radius: 14px;
+	border-radius: 14px;
+	padding: 10px 20px 40px;
+}
+#overagessummarychart {
+    border-collapse: collapse;
+}
+
+#chartrenewalprofile {
+    /* padding-left:70px; */
+}
+
+/* Xtify inbox */
+
+/* turn off slide up notifications by hiding them */
+
+.reactor-simple-modal {
+    display: none;
+}
+
+#notificationsMenu {
+    position: relative;
+    z-index:10;  //  make the text not be rendered by the GPU and shift in weight.  Really...
+}
+
+#notificationsMenu a{
+    white-space:normal !important;
+}
+
+/* position inbox popup here, relative to the element provided in the call to ibmInbox.attach(). */
+#notificationsMenu #x1inbox {
+    display:none;
+    position:absolute;
+    left:-100px;
+    z-index:10000;
+    color:black;
+    background-color: #fff;
+    border: 3px solid black;
+    border-radius: 3px;
+    width:350px;
+    max-height: 400px;
+    overflow-y:scroll;
+    box-shadow: 1px 1px 2px #888;
+}
+
+#notificationsMenu #messageHistory {
+    white-space:normal !important;
+    list-style-type: none;
+    padding:0px;
+}
+
+/* muting the default messageCountBadge as the X1 style sheet has a .badge class we can use as above, we just had to make it disappear when the number is zero. */
+/* #notificationsMenu #messageCountBadge {
+    display:none;
+    float:right;
+    border:2px solid white;
+    background-color: red;
+    color:white;
+    border-radius:15px;
+    padding:0px 5px;
+    padding-bottom:2px;
+    font-size: 90%;
+    line-height:100%;
+    font-weight: bold;
+    margin-left:5px;
+    margin-top:0px;
+}
+
+
+#notificationsMenu #messageCountBadge.lit{
+    display:block;
+}
+*/
+
+#notificationsMenu li:hover {
+    background-color:#eee;
+}
+
+#notificationsMenu .msg
+{
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 2px;
+    margin: 0px;
+    max-width: 350px;
+}
+
+#notificationsMenu .msg-subject
+{
+    font-size: 80%;
+    padding: 7px;
+    padding-bottom: 3px;
+    margin:0px;
+}
+
+#notificationsMenu .msg-body
+{
+    font-size: 80%;
+    padding: 7px;
+    padding-top: 3px;
+    max-width: 350px;
+    overflow-x:scroll;
+}
+#notificationsMenu .msg-body a {
+    color:blue !important;
+}
+
+
+#notificationsMenu .msg-received
+{
+
+    color: gray;
+    font-size: 70%;
+    text-align: left;
+    padding-left:10px;
+}
+
+#notificationsMenu .msg-delete
+{
+//    background: url(../i/trash.png);
+    background-size: 13px 13px;
+    background-repeat: no-repeat;
+    margin:10px;
+    float: right;
+    color: gray;
+    cursor: pointer;
+}
+
+#notificationsMenu .new-school-simple-inbox {
+    position:absolute;
+    z-index:10000;
+    color:black;
+    background-color: #fff;
+    border: 3px solid black;
+    border-radius: 3px;
+    width:350px;
+    max-height: 400px;
+    overflow-y:scroll;
+}
+
+#topselect {
+    width:500px;
+}
+/* scx styles */
+
+
+
+@media (max-width: 768px) {
+
+    .hideonmobile {
+        display:none;
+    }
+
+    #bluewand {
+        width:100%;
+        margin:0px;
+        margin-left:5px;
+        padding:0px;
+        height:600px;
+    }
+}
+
+/* nv d3 graph styling */
+
+.nvtooltip {
+    background-color: rgba(255,255,255,.80);
+}
+
+
+/* bootstrap mods for ipad */
+
+
+.nonbounce {
+    overflow-y:auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* home page tiles */
+.nav-tiles  div  a{
+    color:#959492;
+}
+
+.nav-tiles > div {
+    display:block;
+    text-align:center;
+    margin-top:40px;
+}
+
+#relatedlinks {
+    margin:0px;
+}
+
+
+/* overall.html dashboard.html */
+#expiresgauge,
+#totalcontractvalue {
+    text-align:center;
+}
+
+.wboxmultiples {
+    position:relative;
+    min-height:160px;
+    margin-bottom:20px;
+}
+
+.wboxmultiples:hover {
+    background-color:#eef;
+    border-radius:5px;
+    box-shadow:1px 1px 5px #ccc;
+}
+
+#overallmultiples {
+    margin-top:20px;
+}
+
+.wbox {
+    position:relative;
+    min-height:200px;
+}
+
+.wboxbig {
+    position:relative;
+    min-height:320px;
+}
+
+.boxtools {
+    position:absolute;
+    display:inline;
+    color:#aaa;
+    top:0px;
+    right:0px;
+}
+
+.boxtools.bottom {
+    top:auto;
+    bottom:-2px;
+}
+
+.boxtools a {
+    color:#888;
+    font-size:12px;
+}
+
+.boxtools a:hover {
+    lineHeight:1.0;
+    color: #1f77b4;
+}
+
+.boxtools a:last-child{
+    right:25px;
+}
+
+
+
+.boxtools a:after{
+	content: " >";
+    margin-right:20px;
+}
+
+#accountinfo {
+	font-size: 14px;
+}
+#accountinfo h5 {
+	margin: 22px 0 3px 0;
+}
+#accountinfo a {
+	color: #000;
+}
+#accountinfo a:after {
+	content: " >";
+}
+
+.navbar-toggle {
+    border:0px solid black;
+    margin: 5px;
+}
+
+div.scx-info-heading-5 {
+    clear: both;
+}
+
+div.scx-info-heading-3 h3, div.scx-info-heading-5 h5 {
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    width:90%;
+	float: left;
+    line-height:1.4;
+}
+div.scx-info-heading-3 h3 {
+	font-size: 22px;
+	float: left;
+}
+
+div.scx-info-heading-3 img, div.scx-info-heading-5 img {
+	height: 22px;
+	float: right;
+}
+div.scx-info-heading-3 img {
+	margin-top: 2px;
+}
+div.scx-info-heading-5 img {
+	margin-top: 9px;
+}
+
+div.scx-health-glance-chart {
+	clear: both;
+}
+
+.chartDescription {
+    clear:both;
+    font-size: 9pt;
+}
+
+.lowbar {
+    color: #333;
+}
+
+
+.nv-multiBarWithLegend .nv-legend-text, .nv-pieChart .nv-legend-text {
+	font-size: 0.66em;
+}
+.nv-pieChart .nv-pieLabels text {
+	fill: #fff !important;
+}
+
+.customername {
+    text-align: center;
+    font-size:22px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    display:block;
+}
+
+.gauge{
+    text-align: center;
+}
+
+#nextrenewal {
+	margin-left:10px;
+}
+
+#nextrenewal a:after{
+	content: " >";
+}
+#nextrenewal a{
+	margin-left:2px;
+}
+
+#nextrenewal ul {
+   padding:0px;
+}
+#nextrenewal li {
+   list-style-type:none;
+   padding:0px;
+   text-decoration:none;
+}
+#accountinfo ul {
+   padding:0px;
+}
+
+#accountinfo li {
+   list-style-type:none;
+   padding:0px;
+   text-decoration:none;
+}
+.selectbar {
+    background-color: rgb(235,235,235);
+    border:2px solid grey;
+    border-radius:4px;
+    text-align:center;
+    padding-left:0;
+    margin-left:0;
+}
+
+.selectbar li {
+    list-style-type:none;
+    color:#383633;
+    padding-top:2px;
+    padding-bottom:5px;
+    padding-right:10px;
+    padding-left:10px;
+    margin:0px;
+    display:inline;
+}
+ 
+
+.selected, .selected:hover {
+    background-color: #008abf;// rgb(206,210,213);
+    border-color: #008abf;// rgb(206,210,213);
+    color:white;
+    text-shadow:none;
+}
+
+input.selected:hover {
+    background-color: white;
+    color:black;
+}
+
+input {
+    background-color:#fff;
+}
+
+
+textarea {
+    font: bold 12px courier;
+}
+
+input[type='checkbox'] {
+    width:16px;
+    height:16px;
+    bottom:-2px;
+    background-color: white;
+    border:2px solid grey;
+    -webkit-appearance: none;
+    -moz-appearance:  none;
+    appearance:  none;
+}
+
+input[type='checkbox'].redcheck {
+    background-color: white;
+    border-color: red;
+
+}
+input[type='checkbox'].orangecheck {
+    background-color: white;
+    border-color: orange;
+
+}
+input[type='checkbox'].greencheck {
+    background-color: white;
+    border-color: green;
+
+}
+
+input[type='checkbox'].redcheck:checked {
+    background-color: red;
+}
+input[type='checkbox'].orangecheck:checked {
+    background-color: orange;
+}
+input[type='checkbox'].greencheck:checked {
+    background-color: green;
+
+}
+input[type='checkbox']:checked {
+    background-color: black;;
+    -webkit-appearance: none;
+    -moz-appearance:  none;
+    appearance:  none;
+
+}
+
+select:hover {
+    -webkit-appearance: menulist-button;
+    -moz-appearance: menu;
+    appearance: menu;
+}
+
+
+aaadiv {
+    border:1px solid #ddd;
+}
+
+.text-muted {
+    color:#333;
+}
+
+.posrel {
+    position:relative;
+};
+
+.ibm_donutNumber {
+    position:absolute;
+    width:80%;
+    text-align:center;
+    font-size:30px;
+    color:#1f77b4;
+}
+
+
+/* ibmd3.js lineChart */
+.axis path,
+
+.axis line {
+  fill: none;
+  stroke: #bbb;
+  shape-rendering: crispEdges;
+}
+
+.tick text {
+    fill: #444;
+    font-size:12px;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+
+
+#healthchart {
+    max-height: 200px;
+    min-height: 200px;
+}
+
+#chartfeatureactiveness tbody {
+    height:none;
+    overflow:visible;
+}
+/* chart ticket status */
+
+#chartticketstatus text.sectionlabel, 
+#chartticketstatus text.barlabel {
+    fill: black;
+}
+
+#chartticketstatus text.barvaluelow {
+    fill: #333;
+    font-weight: bold;
+}
+
+#chartticketstatus text.barvalue {
+    fill: white;
+}
+
+#chartticketstatus text.sectionlabel {
+    fill: #333;
+    font-weight: bold;
+}
+
+#chartticketstatus rect.Open {
+    fill: steelblue;
+}
+
+#chartticketstatus rect.Closed {
+    fill: #888;
+}
+
+
+/* threshold */
+
+
+#threshold-control  text {
+    font-size:12px;
+}
+
+.threshold-control  {
+  fill: #def;
+  stroke: purple;
+  stroke-width: 1px;
+}
+
+.threshold-control-off  {
+  fill: #eee;
+  stroke: #eee;
+  stroke-width: 1px;
+}
+
+.threshold-alert-text  {
+  display:none;
+  fill: white;
+  stroke: white;
+  stroke-width: 1px;
+}
+
+.threshold-alert-text-off  {
+  stroke:#333;
+}
+
+.threshold-triangle  {
+  fill: none;
+  stroke: none;
+  stroke-width: 1px;
+}
+
+.threshold-triangle-off  {
+  fill: #bbb;
+  stroke: black;
+  stroke-width: 1px;
+}
+
+.threshold-control {
+    cursor: col-resize;
+}
+
+.navbar-up {
+    padding-top:0px;
+    font-size:80%;
+    min-height:10px;
+}
+
+
+/* top.html */
+.big-number {
+    font-size:48pt;
+    color: rgb(0 , 100, 135); //#9594ee;
+}
+
+.chartheader {
+    color: #1f77b4;
+}
+
+.roehrs-grid {
+    margin-top:10px;
+    display:table;
+    width:100%;
+}
+
+.roehrs-grid tr {
+    border-bottom:1px solid #ccc;
+    width:100%;
+}
+
+.roehrs-grid tr:hover {
+    background-color:#ddd;
+}
+
+.roehrs-grid  thead,
+.roehrs-grid  tbody {
+    width:100%;
+    display:block;
+
+}
+
+.roehrs-grid tbody {
+    width:100%;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+.roehrs-grid  td {
+   width:1%;
+   border-right:1px solid #888;
+}
+
+.tablerow {
+   border-bottom: 1px solid #888;
+   font-size:12px;
+}
+
+.tablerow button {
+    height: 20px;
+}
+
+#outputdiv {
+    border:1px solid green;
+}
+
+/* feature activeness widget: column classes on dashboard page */
+#logbrowser {
+    max-height: 200px;
+    overflow-y:scroll;
+}
+
+.horizontal-scroll {
+    overflow-x: scroll;
+    max-width: 1600px;
+}
+
+.feature-mode {
+    font-size:.80em;
+    min-width: 1em;
+    max-width:1em;
+    width:1em !important;
+}
+
+.feature-name {
+    font-size:.80em;
+    white-space:nowrap;
+    overflow-x:hidden;
+    text-overflow:ellipsis;
+    max-width: calc( 100% - 140px);
+    max-width: 9em;
+    width:9em !important;
+}
+
+.feature-bar {
+    width:100% !important;
+}
+
+.feature-trend {
+    font-size:.90em;
+    min-width: 1em;
+    max-width: 1em;
+    width:1em !important;
+}
+
+.feature-barchart, .feature-barchart-dark {
+    background-color:#549ac3;
+    height: 18px;
+    margin-top:3px;
+    padding-right:2px;
+    padding-bottom:3px;
+    text-align:right;
+    color: white;
+    font-size:10pt;
+    border-left:3px solid white;
+    border-right:3px solid white;
+}
+
+.feature-barchart-dark {
+    padding-right:0px;
+    padding-left:0px;
+    color: black;
+    text-align:left;
+    background-color:transparent;
+}
+
+/* find my query */
+
+#findby img {
+    width: 30px;
+    height:30px;
+}
+
+#findby h2 {
+    margin-top:10px;
+    line-height:30px;
+}
+
+#findby select {
+    height:20px;
+    margin-top:5px;
+}
+
+#findby input {
+    height:20px;
+    margin-top:5px;
+}
+#findby .row {
+    padding-bottom:10px;
+    padding-top:10px;
+    border-bottom:1px solid #ccc;
+}
+
+#findby h4 {
+    margin-top:0px;
+    border:none;
+}
+
+
+#bluewand {
+    width:100%;
+    margin:0px;
+    padding:0px;
+    border:0px;
+    height:600px;
+}
+
+#page-content-wrapper {
+    overflow:hidden;
+}
+
+#bluewandrow {
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-top:0px;
+    padding-bottom:0px;
+}
+
+#bigtable {
+    display:none;
+}
+
+/* jQuery dialog */
+.ui-dialog.ui-widget.ui-widget-content, .ui-dialog .ui-dialog-buttonpane  {
+	font: inherit;
+	background-color: #fff;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+	display: none;
+}
+
+.ui-dialog .ui-dialog-content {
+	padding: 1.5em 1.5em 0 1.5em;
+}
+
+.ui-dialog .ui-dialog-content p  a {
+	color: #007eac;
+	text-decoration: none;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+	margin-top: 0;
+	padding: .5em 1.5em 1.5em 1.5em;
+	border: none;
+}
+
+.ui-dialog-buttonset button {
+    background-color: #008abf;
+    color: #ffffff;
+	border: medium none;
+    float: none;
+    height: 2.2em;
+    margin-left: 10px;
+    width: 7em;
+}
+.ui-dialog-buttonset button:focus, .ui-dialog-buttonset button:hover {
+    text-decoration: underline;
+    outline: 1px dotted;
+    outline-offset: -2px;
+}

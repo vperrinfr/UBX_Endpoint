@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="text/javascript" src="js/jquery.1.11.0.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="css/dashboard.css?2" rel="stylesheet">
+  <link href="css/jquery-ui.min.css" rel="stylesheet">
+
+<script language="JavaScript">
+  $(document).on("click", "#getevents", function () {
+    console.log("Clic");
+    $.get("/getevents",
+            { 'cache': new Date().getTime()},
+           function (events) { $('#subscribedevents')[0].value = events },
+           "json"
+          );
+
+          $.get("/getNBevents",
+                  { 'cache': new Date().getTime()},
+                 function (events) { $('#incomingeventsstatus').html("<b>Number of events : </b>" + events); },
+                 "json"
+                );
+  });
+</script>
+
+</head>
+<body>
+
+<div class="row">
+  <div class="col-lg-3 col-sm-3"></div>
+  <div class="col-lg-6 col-sm-6">
+    <div class="row">
+    <h4>The last 50 events sent from IBM Marketing Cloud</h4>
+
+    <button id="getevents">Refresh</button><BR>
+    <div id="incomingeventsstatus"></div>
+    <textarea rows=80 cols=80 id="subscribedevents">
+    </textarea>
+    <div id="testresult"></div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-sm-3"></div>
+</div>
+
+</body>
+</html>
