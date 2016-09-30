@@ -1,7 +1,7 @@
 applications:
   - disk_quota: 1024M
-    host: ha--node-starter-vp
-    name: Hack Academy - Node Starter
+    host: ubx_en
+    name: UBX Endpoint
     path: .
     domain: mybluemix.net
     instances: 1
