@@ -56,3 +56,4 @@ First you have to deploy your app
     }
   }
  7. GO back to UBX, and specify which events you want to send to that new endpoint.
+ 8. Open a browser and go to your URL, you will have an interface to see all received events.
