@@ -1,15 +1,15 @@
 'use strict';
 
+var https = require('https');
 var bodyParser = require("body-parser"),
     logs=[],
-    pretty = require("js-object-pretty-print").pretty;
-
-
-    var eventFlowStatus = {jobs:{}, //  { uuid<int>: { sent: int,  total: int}}
+    pretty = require("js-object-pretty-print").pretty,
+    eventFlowStatus = {jobs:{}, //  { uuid<int>: { sent: int,  total: int}}
                            incomingevents : {},   // { channel<string>: receivedlastsecond, receivedthissecond,receivedtotal}
                            outstanding:0,   // overall throttler, only posts events if less than limit responses outstanding.   limits memory usage.
                            limit : 10000
-                          }
+                         };
+                         ;
 
 //////////////////////////////
 // Requires
@@ -32,6 +32,72 @@ app.use(express.static(__dirname+ '/html'));
 //////////////////////////////
 // UBX
 /////////////////////////////
+
+
+app.post("/regpubwithubx", bodyParser(), function (req,res) {
+    var     subscriber = {
+    	"providerName": "IBM",
+    	"name": "Endpoint 2 for Node.js",
+    	"description": "UBX Endpoint for Node.js 2",
+    	"endpointTypes": {
+    		"event": {
+    			"source": {
+    				"enabled": false
+    			},
+    			"destination": {
+    				"url": appEnv.url + "/subscriber",
+    				"enabled": true,
+    				"destinationType": "push"
+    			}
+    		}
+    	}
+    };
+
+    var jsonObject = JSON.stringify(subscriber);
+    console.log("HOST" + appEnv.url);
+    console.log(jsonObject);
+    var authkey = req.body.endpointtext;
+    console.log("Authkey " + authkey);
+
+    var postheaders = {
+    'Content-Type' : 'application/json',
+    'Authorization' : "Bearer " + authkey
+    };
+
+    console.log("Headers " + JSON.stringify(postheaders))
+
+    var optionspost = {
+    host : 'api-01.ubx.ibmmarketingcloud.com',
+    port : 443,
+    path : '/v1/endpoint',
+    method : 'PUT',
+    headers : postheaders
+    };
+
+
+    // do the POST call
+var reqPost = https.request(optionspost, function(res) {
+    console.log("statusCode: ", res.statusCode);
+    // uncomment it for header details
+    console.log("headers: ", res.headers);
+
+    res.on('data', function(d) {
+        console.info('POST result:\n');
+        process.stdout.write(d);
+        console.info('\n\nPOST completed');
+        });
+    });
+
+    // write the json data
+    reqPost.write(jsonObject);
+    reqPost.end();
+    reqPost.on('error', function(e) {
+        console.error(e);
+    });
+
+
+});
+
 
 app.post("/subscriber/v1/events",  bodyParser(), function (req,res) {
     var data= req.body;
